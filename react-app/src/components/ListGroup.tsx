@@ -2,9 +2,9 @@ import { useState } from "react";
 
 function ListGroup() {
   let items = ["New York", "London", "Paris", "Mumbai", "Tokyo"];
-  let selectedindex = -1;
   //Hook- This is to tell react that this has data that changes over time.
-  const arr = useState(-1);
+  const [selectedindex, setSelectedIndex] = useState(-1);
+
   //Event handler
 
   return (
@@ -21,7 +21,7 @@ function ListGroup() {
             }
             key={item}
             onClick={() => {
-              selectedindex = index;
+              setSelectedIndex(index);
             }}
           >
             {item}
