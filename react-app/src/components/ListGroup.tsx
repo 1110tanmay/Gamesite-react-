@@ -1,10 +1,11 @@
-import { MouseEvent } from "react";
+import { useState } from "react";
+
 function ListGroup() {
   let items = ["New York", "London", "Paris", "Mumbai", "Tokyo"];
-  let selectedindex = 0;
-
+  let selectedindex = -1;
+  //Hook- This is to tell react that this has data that changes over time.
+  const arr = useState(-1);
   //Event handler
-  const handleClick = (event: MouseEvent) => console.log(event);
 
   return (
     <>
@@ -19,7 +20,9 @@ function ListGroup() {
                 : "list-grou-item"
             }
             key={item}
-            onClick={handleClick}
+            onClick={() => {
+              selectedindex = index;
+            }}
           >
             {item}
           </li>
